@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>SonBlog</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<%= csrf_meta_tags %>
+		<%= csp_meta_tag %>
+		<%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+		<%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+	</head>
+	<!-- app/views/layouts/application.html.erb -->
+	<dialog id="turbo-confirm">
+		<form method="dialog">
+			<p>Are you sure?</p>
+			<div>
+				<button value="cancel">Cancel</button>
+				<button value="confirm">Confirm</button>
+			</div>
+		</form>
+	</dialog>
+	<body>
+		<div class="container">
+			<% if notice.present? %>
+				<div class="alert alert-primary mt-4" role="alert">
+					<%= notice %>
+				</div>
+			<% end %>
+			<% if alert.present? %>
+				<div class="alert alert-danger mt-4" role="alert">
+					<%= alert %>
+				</div>
+			<% end %>
+			<%= yield %>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,35 @@
+<%= form_with(model: article) do |form| %>
+  <!-- add hidden_field user_id here -->
+  <%= form.hidden_field :user_id, value: current_user&.id %>
+  <% if article.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(article.errors.count, "error") %> prohibited this article from being saved:</h2>
+      <ul>
+        <% article.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="my-2">
+    <%= form.label :title, style: "display: block" %>
+    <%= form.text_field :title, class: "form-control" %>
+  </div>
+  <div class="my-2">
+    <%= form.label :content, style: "display: block" %>
+    <%= form.rich_text_area :content, class: "form-control" %>
+  </div>
+  <div class="my-2">
+    <%= form.label :category_id, style: "display: block" %>
+    <%= form.select :category_id, options_for_select(category_select_options, form.object.category&.id), { include_blank: "Select category"}, { class: 'form-select select2' } %>
+  </div>
+  <div class="my-2">
+    <div class="form-check">
+      <%= form.check_box :active, class: "form-check-input", class: "form-check-input" %>
+      <%= form.label :active, class: "form-check-label" %>
+    </div>
+  </div>
+  <div class="my-2">
+    <%= form.submit class: "btn btn-primary" %>
+  </div>
+<% end %>
