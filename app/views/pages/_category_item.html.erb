@@ -1,0 +1,3 @@
+<div>
+  <%= link_to category.name, root_path(cid: category.id, q: params[:q]), class: "#{params[:cid].to_i == category.id ? "fw-bold" : "text-decoration-none text-dark"}" %>
+</div>

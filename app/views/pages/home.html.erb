@@ -1,2 +1,23 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="py-4">
+  <%= render 'pages/search_box', items: @articles %>
+</div>
+<div class="row">
+  <div class="col-lg-4">
+    <h3>Category</h3>
+    <% @categories.each do |category| %>
+      <%= render 'pages/category_item', category: category %>
+    <% end %>
+  </div>
+  <div class="col-lg-8">
+    <h3>Article</h3>
+    <% unless @articles.present? %>
+      <div class="alert alert-info" role="alert">
+        <span>No items found. Please try agian!</span>
+      </div>
+    <% end %>
+    <% @articles.each do |article| %>
+      <%= render 'pages/article', article: article %>
+    <% end %>
+    <%= will_paginate @articles, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
+  </div>
+</div>

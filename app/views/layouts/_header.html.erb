@@ -1,0 +1,31 @@
+<header class="bd-header bg-dark py-3 d-flex align-items-stretch border-bottom border-dark">
+	<div class="container-fluid d-flex align-items-center">
+		<div class="d-flex flex-wrap justify-items-center align-items-center justify-content-md-between w-100">
+			<h1 class="d-flex align-items-center fs-4 text-white mb-0">
+				<img src="<%= image_path("son") %>" width="38" height="30" class="me-3" alt="Bootstrap">
+				<div class="text-primary">SonBlog</div>
+			</h1>
+			<ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+				<li><a href="/" class="nav-link px-2 text-white">Home</a></li>
+				<li><a href="<%= categories_path %>" class="nav-link px-2 text-white">Category</a></li>
+				<li><a href="<%= articles_path %>" class="nav-link px-2 text-white">Articles</a></li>
+				<li><a href="#" class="nav-link px-2 text-white">About</a></li>
+				<form class="d-flex text-end" role="search">
+					<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+					<button class="btn btn-outline-success" type="submit">Search</button>
+				</form>
+			</ul>
+			<div class="text-end">
+				<% if user_signed_in? %>
+					<span class="text-white mx-2">
+						<%= current_user.email %>
+					</span>
+					<%= link_to "Sign out", destroy_user_session_path, class: "btn btn-warning", data: { turbo_method: "delete" } %>
+				<% else %>
+					<%= link_to "Login", new_user_session_path, class: "btn btn-outline-light me-2" %>
+					<%= link_to "Sign-up", new_user_registration_path, class: "btn btn-warning" %>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</header>
