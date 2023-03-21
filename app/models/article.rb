@@ -1,6 +1,9 @@
 class Article < ApplicationRecord
   belongs_to :user
+  belongs_to :category, optional: true
+  has_rich_text :content
 
+  scope :filter_by_category, ->(params) { where(category_id: params[:cid]) if params[:cid].present? }
   # app/models/article.rb
 
   def self.search(params)

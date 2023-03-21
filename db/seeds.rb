@@ -1,4 +1,4 @@
-user = User.create(email: "son@example.com", password: "demo", password_confirmation: "demo")
+user = User.create(email: "son@example.com", password: "demo2023", password_confirmation: "demo2023")
 30.times.each do |cindex|
   cate = Category.create(name: Faker::Food.ingredient, description: Faker::Quote.famous_last_words)
   puts "create new category: #{cate.name}"

@@ -1,17 +1,15 @@
 <div id="<%= dom_id article %>">
-  <p>
-    <strong>Title:</strong>
-    <%= article.title %>
-  </p>
-
-  <p>
-    <strong>User:</strong>
-    <%= article.user_id %>
-  </p>
-
-  <p>
-    <strong>Active:</strong>
-    <%= article.active %>
-  </p>
-
+	<div class="card">
+		<div class="card-body">
+			<h5 class="card-title text-primary">Title: <%= article.title %></h5>
+			<p>
+				<strong>User:</strong>
+				<%= article.user_id %>
+			</p>
+			<p>
+				<strong>Active:</strong>
+				<%= article.active %>
+			</p>
+		</div>
+	</div>
 </div>

@@ -1,12 +1,11 @@
 <div id="<%= dom_id category %>">
-  <p>
-    <strong>Name:</strong>
-    <%= category.name %>
-  </p>
-
-  <p>
-    <strong>Description:</strong>
-    <%= category.description %>
-  </p>
-
+	<div class="card" style="width: 18rem;">
+		<div class="card-body">
+			<h5 class="card-title">Name: <%= category.name %></h5>
+			<p>
+				<strong>Description:</strong>
+				<%= category.description %>
+			</p>
+		</div>
+	</div>
 </div>
