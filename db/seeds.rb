@@ -7,3 +7,5 @@ user = User.create(email: "son@example.com", password: "demo2023", password_conf
     puts "created article #{article.id} - #{article.title}"
   end
 end
+
+About.create(ten: 'Ruby Dev', nam_sinh: 1985, dien_thoai: '0123456789', dia_chi: 'Vinh Long', tieu_su: "THPT Nguyen Thong")
